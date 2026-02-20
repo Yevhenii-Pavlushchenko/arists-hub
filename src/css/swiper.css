@@ -107,6 +107,7 @@ color: #fff;
 }
 
 .star {
+    position: relative;
     width: 20px;
     height: 19px;
     background-color: #fff;
@@ -114,13 +115,39 @@ color: #fff;
     /* Рисуем форму звезды через маску (работает во всех браузерах) */
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
-
-/* Красим нужное количество звезд */
-.rating-set-1 .star:nth-child(1),
-.rating-set-2 .star:nth-child(-n+2),
-.rating-set-3 .star:nth-child(-n+3),
-.rating-set-4 .star:nth-child(-n+4),
-.rating-set-5 .star:nth-child(-n+5) {
-    background-color: #ffca08;
-    /* Цвет закрашенной звезды */
+.star::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    /* По умолчанию звезда пустая */
+    background-color: #764191;
+    transition: width 0.3s ease;
 }
+
+/* --- Сначала общие правила для всех полных звезд --- */
+.rating-set-1 .star:nth-child(1):after,
+.rating-set-2 .star:nth-child(-n+2):after,
+.rating-set-3 .star:nth-child(-n+3):after,
+.rating-set-4 .star:nth-child(-n+4):after,
+.rating-set-5 .star:nth-child(-n+5):after,
+/* Добавляем закраску целых звезд для дробных рейтингов */
+.rating-set-1-5 .star:nth-child(1):after,
+.rating-set-2-5 .star:nth-child(-n+2):after,
+.rating-set-3-5 .star:nth-child(-n+3):after,
+.rating-set-4-5 .star:nth-child(-n+4):after {
+    width: 100%;
+}
+
+/* --- Теперь правила только для ПОСЛЕДНЕЙ половинки --- */
+.rating-set-0-5 .star:nth-child(1):after,
+.rating-set-1-5 .star:nth-child(2):after,
+.rating-set-2-5 .star:nth-child(3):after,
+.rating-set-3-5 .star:nth-child(4):after,
+.rating-set-4-5 .star:nth-child(5):after {
+    width: 50%;
+}
+
+

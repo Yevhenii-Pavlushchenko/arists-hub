@@ -151,3 +151,9 @@ window.addEventListener('scroll', () => {
     scrollTopBtn.classList.remove('is-visible');
   }
 });
+
+// import Raty from 'raty-js';
+// import 'raty-js/src/raty.css';
+// const starContainer = document.querySelector('[data-raty]');
+// const raty = new Raty(starContainer, { starType: 'i' });
+// raty.init();
