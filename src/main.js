@@ -1,4 +1,4 @@
-import 'css-star-rating/dist/css-star-rating.min.css';
+// import 'css-star-rating/dist/css-star-rating.min.css';
 import { perPage, getImagesByQuery } from './js/pixabay-api';
 import {
   createGallery,
