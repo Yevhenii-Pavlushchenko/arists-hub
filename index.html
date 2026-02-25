@@ -2,35 +2,416 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/arists-hub/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/project-artist-hub/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home work 12</title>
-    <script type="module" crossorigin src="/arists-hub/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/arists-hub/assets/styles-1m9JF8WR.js">
-    <link rel="modulepreload" crossorigin href="/arists-hub/assets/vendor-BYtaHlT3.js">
-    <link rel="stylesheet" crossorigin href="/arists-hub/assets/styles-BXN2Xr-2.css">
-    <link rel="stylesheet" crossorigin href="/arists-hub/assets/vendor-xDI2eIjw.css">
+    <meta
+      name="description"
+      content="Artist Hub — найкраща платформа для пошуку музикантів та відгуків про них."
+    />
+    <title>ArtistsHub</title>
+    <script type="module" crossorigin src="/project-artist-hub/index.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-artist-hub/assets/pagination-Y5Kh12Jz.js">
+    
   </head>
   <body>
-    <a class="link-swiper" href="./swiper.html">Swiper</a>
+    <header class="header">
+  <div class="header-container container">
+
+    <!-- logo -->
+    <a href="./index.html" class="logo" aria-label="Go to homepage">
+      <svg class="logo-icon" width="106" height="30" aria-hidden="true">
+        <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#main-logo"></use>
+      </svg>
+    </a>
+
+    <!-- burger button -->
+    <button
+      class="burger"
+      type="button"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      data-menu-toggle
+    >
+      <!-- burger icon -->
+      <svg class="burger-icon" width="24" height="24" aria-hidden="true">
+        <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#burger-menu"></use>
+      </svg>
+
+      <!-- close icon -->
+      <svg class="close-icon" width="12" height="12" aria-hidden="true">
+        <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#close-button"></use>
+      </svg>
+    </button>
+
+    <!-- navigation -->
+    <nav
+      class="nav"
+      id="mobile-menu"
+      aria-label="Main navigation"
+      data-menu
+    >
+      <ul class="nav-list">
+        <li><a href="#artists">Artists</a></li>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#feedbacks">Reviews</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
     <main>
-      <form class="form">
-        <label>
-          <input
-            type="text"
-            name="search-text"
-            placeholder="Search images..."
+      <section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-left">
+      <h1 class="hero-title">Discover Your Next Favorite Artist Today</h1>
+      <p class="hero-desc">
+        Dive into a world of music discoveries with ArtistsHub - your personal
+        guide to the boundless universe of sound. Explore, filter, and learn
+        about your favorite artists all in one place.
+      </p>
+      <a href="#artists" class="hero-btn" aria-label="Explore artists">
+        Explore Artists
+        <svg class="btn-hero-icon" width="15" height="20">
+          <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#hero-button"></use>
+        </svg>
+      </a>
+    </div>
+
+    <div class="hero-image" style="aspect-ratio: 288 / 385"></div>
+  </div>
+</section>
+
+      <section class="artists" id="artists">
+  <div class="container">
+    <p class="artists-subtitle">Artists</p>
+    <h2 class="artists-title">Explore Your New Favorite Artists</h2>
+    <div class="artists-results" id="artists-results">
+      <ul class="artists-list"></ul>
+      <span class="loader">Loading</span>
+      <button class="js-load-more-btn btn-primary load-more-btn" type="button">
+        Load More<span>
+          <svg width="12" height="12">
+            <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#arrow-down"></use>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+</section>
+
+      <section class="about-us" id="about-us">
+  <div class="container">
+    <img
+      class="about-img"
+      src="/project-artist-hub/about-us-team.webp"
+      srcset="/project-artist-hub/about-us-team.webp 1x, /project-artist-hub/about-us-team-2x.webp 2x"
+      loading="lazy"
+      width="343"
+      height="168"
+      alt="team photo"
+    />
+
+    <div class="about-right">
+      <svg class="about-icon" fill="#fff">
+        <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#about-logo"></use>
+      </svg>
+      <h2 class="about-header">About ArtistsHub</h2>
+      <p class="about-text">
+        At ArtistsHub, our mission is to connect music lovers with the artists
+        they adore. We strive to create a vibrant community where discovering
+        new music is as enjoyable as listening to it.
+      </p>
+    </div>
+  </div>
+</section>
+
+      <section class="feedbacks" id="feedbacks">
+  <div class="container">
+    <h2 class="feedback-title-hide">Feedbacks our visitors</h2>
+    <div class="swiper">
+      <ul class="swiper-wrapper js-list-feedbacks">
+        <!-- Slides -->
+        <!-- <li class="swiper-slide">
+          <div class="wrapper">
+            <div class="stars-static rating-set-1-5">
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+            </div>
+            <p class="user-feedback">
+              "ArtistsHub has transformed the way I discover new music. It's
+              like having a personal DJ that knows my taste perfectly!"
+            </p>
+            <p class="user-name">Slide 1</p>
+          </div>
+        </li>
+        <li class="swiper-slide">
+          <div class="wrapper">
+            <div class="stars-static rating-set-0-5">
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+            </div>
+            <p class="user-feedback">
+              "ArtistsHub has transformed the way I discover new music. It's
+              like having a personal DJ that knows my taste perfectly!"
+            </p>
+            <p class="user-name">Slide 2</p>
+          </div>
+        </li>
+        <li class="swiper-slide">
+          <div class="wrapper">
+            <div class="stars-static rating-set-2">
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+            </div>
+            <p class="user-feedback">
+              "ArtistsHub has transformed the way I discover new music. It's
+              like having a personal DJ that knows my taste perfectly!"
+            </p>
+            <p class="user-name">Slide 3</p>
+          </div>
+        </li>
+        <li class="swiper-slide">
+          <div class="wrapper">
+            <div class="stars-static rating-set-4">
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+            </div>
+            <p class="user-feedback">
+              "ArtistsHub has transformed the way I discover new music. It's
+              like having a personal DJ that knows my taste perfectly!"
+            </p>
+            <p class="user-name">Slide 4</p>
+          </div>
+        </li>
+        <li class="swiper-slide">
+          <div class="wrapper">
+            <div class="stars-static rating-set-2-5">
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+            </div>
+            <p class="user-feedback">
+              "ArtistsHub has transformed the way I discover new music. It's
+              like having a personal DJ that knows my taste perfectly!"
+            </p>
+            <p class="user-name">Slide 5</p>
+          </div>
+        </li>
+        <li class="swiper-slide">
+          <div class="wrapper">
+            <div class="stars-static rating-set-2">
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+            </div>
+            <p class="user-feedback">
+              "ArtistsHub has transformed the way I discover new music. It's
+              like having a personal DJ that knows my taste perfectly!"
+            </p>
+            <p class="user-name">Slide 6</p>
+          </div>
+        </li>
+        <li class="swiper-slide">
+          <div class="wrapper">
+            <div class="stars-static rating-set-3-5">
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+              <div class="star"></div>
+            </div>
+            <p class="user-feedback">
+              "ArtistsHub has transformed the way I discover new music. It's
+              like having a personal DJ that knows my taste perfectly!"
+            </p>
+            <p class="user-name">Slide 7</p>
+          </div>
+        </li> -->
+      </ul>
+      <!-- pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!--  navigation BTN  -->
+      <div class="swiper-button-prev">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.7069 17.293L8.41394 13H17.9999V11H8.41394L12.7069 6.70697L11.2929 5.29297L4.58594 12L11.2929 18.707L12.7069 17.293Z"
+            fill="white"
           />
-        </label>
-        <!-- Кнопка 'search' -->
-        <button type="submit">Search</button>
-      </form>
-      <ul class="gallery"></ul>
-      <p class="output-total"></p>
-      <span class="loader is-hidden"></span>
-      <!-- Кнопка 'load more' -->
-      <button class="gallery-btn is-hidden" type="button">Load more</button>
-      <button id="scrollToTop" class="scroll-top-btn" type="button">↑</button>
+        </svg>
+      </div>
+      <div class="swiper-button-next">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11.293 17.293L12.707 18.707L19.414 12L12.707 5.29297L11.293 6.70697L15.586 11H6V13H15.586L11.293 17.293Z"
+            fill="white"
+          />
+        </svg>
+      </div>
+    </div>
+    <button type="button" class="btn-feedback-modal">Leave feedback</button>
+  </div>
+</section>
+
     </main>
+    <footer class="footer">
+  <div class="container">
+    <div class="footer-nav-div">
+      <a href="./index.html" class="footer-logo-link"
+        ><svg class="footer-logo" fill="#764191" width="116px" height="45px">
+          <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#main-logo"></use>
+        </svg>
+        <svg
+          class="mobile-footer-logo"
+          fill="#764191"
+          width="84px"
+          height="36px"
+        >
+          <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#mobile-logo"></use>
+        </svg>
+      </a>
+      <ul class="footer-nav-list">
+        <li class="footer-nav-item">
+          <a href="#artists" class="footer-nav-link">Artists</a>
+        </li>
+        <li class="footer-nav-item">
+          <a href="#about-us" class="footer-nav-link">About us</a>
+        </li>
+        <li class="footer-nav-item">
+          <a href="#feedbacks" class="footer-nav-link">Reviews</a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-soc-div">
+      <ul class="footer-soc-list">
+        <li class="footer-soc-item">
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            class="footer-soc-link"
+            rel="noopener noreferrer"
+            ><svg
+              fill="#fff"
+              width="40px"
+              height="40px"
+              class="footer-soc-icon"
+            >
+              <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#instagram"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="footer-soc-item">
+          <a
+            href="https://www.facebook.com/ "
+            target="_blank"
+            class="footer-soc-link"
+            rel="noopener noreferrer"
+            ><svg
+              fill="#fff"
+              width="40px"
+              height="40px"
+              class="footer-soc-icon"
+            >
+              <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#facebook"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="footer-soc-item">
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            class="footer-soc-link"
+            rel="noopener noreferrer"
+            ><svg
+              fill="#fff"
+              width="40px"
+              height="40px"
+              class="footer-soc-icon"
+            >
+              <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#youtube"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <p class="footer-copyright">© 2025 ArtistsHub. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+    <div class="modal-artist" data-modal-artist>
+  <div class="modal-artist-wrapper">
+    <!-- Close button -->
+    <button class="modal-artist-close" type="button" aria-label="Close modal">
+      <svg class="modal-artist-close-icon" width="24" height="24">
+        <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#close-button"></use>
+      </svg>
+    </button>
+
+    <!-- Loader -->
+    <div class="modal-artist-loader">
+      <p>Loading...</p>
+    </div>
+
+    <!-- Content (hidden until data loads) -->
+    <div class="modal-artist-content" style="display: none">
+      <!-- Content will be injected here via JavaScript -->
+    </div>
+  </div>
+</div>
+
+    <button class="scroll-up js-scroll-up" type="button" aria-label="Scroll to top">
+  <svg class="scroll-up-icon" width="24" height="24" aria-hidden="true">
+    <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#arrow-up"></use>
+  </svg>
+</button>
+
+    <div class="rating">
+  <input type="radio" name="rating" value="1" id="star1" /><label
+    for="star1"
+  ></label>
+  <input type="radio" name="rating" value="2" id="star2" /><label
+    for="star2"
+  ></label>
+  <input type="radio" name="rating" value="3" id="star3" /><label
+    for="star3"
+  ></label>
+  <input type="radio" name="rating" value="4" id="star4" /><label
+    for="star4"
+  ></label>
+  <input type="radio" name="rating" value="5" id="star5" /><label
+    for="star5"
+  ></label>
+</div>
+
   </body>
 </html>
