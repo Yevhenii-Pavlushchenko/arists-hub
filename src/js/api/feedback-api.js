@@ -24,3 +24,14 @@ export async function postFeedback(feedback) {
     message: "Feedback is processed"
   }
 */
+
+const ratingInputs = document.querySelectorAll('.rating input');
+let rating = 0;
+ratingInputs.forEach(input => {
+  input.addEventListener('change', event => {
+    rating = event.target.value;
+
+    console.log(`Рейтинг: ${rating}`);
+    return rating;
+  });
+});

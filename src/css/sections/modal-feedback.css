@@ -1,0 +1,37 @@
+
+
+.rating{
+    display: flex;
+    flex-direction: row-reverse;
+    gap:6px
+    
+}
+.rating input{
+    display: none;
+}
+
+.rating label{
+    float: right;
+    cursor: pointer;
+    color: var(--white-color);
+    transition: color 3ms;
+}
+
+.rating label::before {
+    content: "";
+    display: inline-block;
+    width: 31px;
+    height: 29px;
+    background-color: currentColor;
+
+    clip-path: path("M13.7662 0.929307C14.2879 -0.30977 16.0646 -0.309769 16.5863 0.92931L19.6652 8.24257C19.8853 8.76493 20.3825 9.12185 20.9533 9.16705L28.9451 9.80002C30.2992 9.90727 30.8482 11.5766 29.8166 12.4497L23.7277 17.6024C23.2928 17.9705 23.1028 18.5481 23.2357 19.0983L25.0959 26.8028C25.4111 28.1081 23.9737 29.1399 22.8144 28.4404L15.9723 24.3117C15.4836 24.0167 14.8689 24.0167 14.3802 24.3117L7.53802 28.4404C6.37874 29.1399 4.94131 28.1081 5.25649 26.8028L7.11678 19.0983C7.24965 18.5481 7.05971 17.9705 6.62481 17.6024L0.535815 12.4497C-0.495835 11.5766 0.0532198 9.90727 1.40728 9.80002L9.39918 9.16705C9.97003 9.12185 10.4673 8.76493 10.6872 8.24257L13.7662 0.929307Z");
+}
+
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label{
+
+    color: var(--btn-background);
+    transition: color 3ms;
+}
