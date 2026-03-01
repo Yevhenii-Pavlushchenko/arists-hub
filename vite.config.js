@@ -7,6 +7,7 @@ import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 export default defineConfig(({ command }) => {
   return {
+    base: '/arists-hub/',
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
